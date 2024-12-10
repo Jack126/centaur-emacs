@@ -137,7 +137,7 @@ Otherwise the startup will be very slow."
 
 (require 'init-dict)
 (require 'init-docker)
-(require 'init-player)
+;;(require 'init-player)
 (require 'init-utils)
 
 ;; Programming
@@ -156,5 +156,9 @@ Otherwise the startup will be very slow."
 (require 'init-elixir)
 (require 'init-web)
 
+;; mine settings
+(require 'init-my-package)
+;; lsp-fsharp
+(require 'init-fsharp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

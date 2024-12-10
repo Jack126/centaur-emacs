@@ -1,0 +1,11 @@
+[submodule "auto-save"]
+path = site-lisp/extensions/auto-save
+url = git@github.com:manateelazycat/auto-save.git
+
+[submodule "site-lisp/extensions/blink-search"]
+path = site-lisp/extensions/blink-search
+url = git@github.com:manateelazycat/blink-search.git
+
+[submodule "site-lisp/extensions/achive"]
+path = site-lisp/extensions/achive
+url = git@github.com:zakudriver/achive.git
