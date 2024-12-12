@@ -49,7 +49,7 @@
 (use-package flymake-popon
   :diminish
   :custom-face
-  (flymake-popon-posframe-border ((t :foreground ,(face-background 'region))))
+  (flymake-popon-posframe-border ((t :unspecified ,(face-background 'region))))
   :hook (flymake-mode . flymake-popon-mode)
   :init (setq flymake-popon-width 70
               flymake-popon-posframe-border-width 1
