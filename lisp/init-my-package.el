@@ -42,20 +42,6 @@
   :ensure t)
 
 
-;; autoload
-(defun python-remove-all-unused-imports ()
-  "Remove all the unused imports, do NOT use pyimport, as it has bugs.
-eg.from datetime import datetime."
-  (interactive)
-  (check-run-command "autoflake"
-		             (format "-i --remove-all-unused-imports %s"
-			                 (buffer-file-name))))
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
-
-
 ;; weather
 (defun my/weather ()
   "天气预报 based on https://github.com/chubin/wttr.in"
