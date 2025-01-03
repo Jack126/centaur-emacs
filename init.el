@@ -158,7 +158,5 @@ Otherwise the startup will be very slow."
 
 ;; mine settings
 (require 'init-my-package)
-;; lsp-fsharp
-(require 'init-fsharp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

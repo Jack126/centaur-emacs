@@ -36,11 +36,6 @@
 ; (require 'sort-tab)
 ; (sort-tab-mode 1)
 
-;; F#
-(use-package fsharp-mode
-  :defer t
-  :ensure t)
-
 
 ;; weather
 (defun my/weather ()
