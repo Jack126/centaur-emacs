@@ -114,7 +114,8 @@ FACE defaults to inheriting from default and highlight."
   (symbol-overlay-face-6 ((t (:inherit nerd-icons-orange :background unspecified :foreground unspecified :inverse-video t))))
   (symbol-overlay-face-7 ((t (:inherit nerd-icons-green :background unspecified :foreground unspecified :inverse-video t))))
   (symbol-overlay-face-8 ((t (:inherit nerd-icons-cyan :background unspecified :foreground unspecified :inverse-video t))))
-  :bind (("M-i" . symbol-overlay-put)
+  :bind (:map symbol-overlay-mode-map
+         ("M-i" . symbol-overlay-put)
          ("M-n" . symbol-overlay-jump-next)
          ("M-p" . symbol-overlay-jump-prev)
          ("M-N" . symbol-overlay-switch-forward)
@@ -124,7 +125,7 @@ FACE defaults to inheriting from default and highlight."
   :hook (((prog-mode yaml-mode) . symbol-overlay-mode)
          (iedit-mode            . turn-off-symbol-overlay)
          (iedit-mode-end        . turn-on-symbol-overlay))
-  :init (setq symbol-overlay-idle-time 0.1)
+  :init (setq symbol-overlay-idle-time 0.3)
   :config
   (with-no-warnings
     ;; Disable symbol highlighting while selecting
@@ -141,9 +142,18 @@ FACE defaults to inheriting from default and highlight."
         (symbol-overlay-mode 1)))
     (advice-add #'deactivate-mark :after #'turn-on-symbol-overlay)))
 
+;; Mark occurrences of current region (selection)
+(use-package region-occurrences-highlighter
+  :diminish
+  :bind (:map region-occurrences-highlighter-nav-mode-map
+         ("M-n" . region-occurrences-highlighter-next)
+         ("M-p" . region-occurrences-highlighter-prev))
+  :hook (after-init . global-region-occurrences-highlighter-mode))
+
 ;; Highlight indentions
 (use-package indent-bars
   :custom
+  (indent-bars-color '(highlight :face-bg t :blend 0.225))
   (indent-bars-treesit-support centaur-tree-sitter)
   (indent-bars-no-descend-string t)
   (indent-bars-treesit-ignore-blank-lines-types '("module"))
@@ -158,8 +168,7 @@ FACE defaults to inheriting from default and highlight."
     (use-package colorful-mode
       :diminish
       :hook (after-init . global-colorful-mode)
-      :init (setq colorful-use-prefix t
-                  colorful-prefix-string "⬤")
+      :init (setq colorful-use-prefix t)
       :config (dolist (mode '(html-mode php-mode help-mode helpful-mode))
                 (add-to-list 'global-colorful-modes mode)))
   (use-package rainbow-mode
