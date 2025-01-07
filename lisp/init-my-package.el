@@ -36,6 +36,14 @@
 ; (require 'sort-tab)
 ; (sort-tab-mode 1)
 
+;; format all, formatter for almost languages
+;; great for programmers
+(use-package format-all
+  :defer 1
+  :diminish
+  :hook (prog-mode . format-all-ensure-formatter)
+  :bind ("C-c z f" . #'format-all-buffer))
+
 
 ;; weather
 (defun my/weather ()
@@ -75,7 +83,6 @@
 (global-set-key (kbd "C-c z w") 'my/weather) ;;查看天气
 (global-set-key (kbd "C-c [") 'project-find-file) ;;项目中查找文件
 (global-set-key (kbd "C-c z b") 'blink-search);; blink-search
-
 (provide 'init-my-package)
 
 ;; Local Variables:
