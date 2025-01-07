@@ -27,15 +27,6 @@
     :defer 1)
 
 
-;; blink-search
-(add-to-list 'load-path "~/.emacs.d/extensions/blink-search")
-(require 'blink-search)
-
-;; sort-tab
-; (add-to-list 'load-path "~/.emacs.d/extensions/sort-tab") ; add sort-tab to your load-path
-; (require 'sort-tab)
-; (sort-tab-mode 1)
-
 ;; format all, formatter for almost languages
 ;; great for programmers
 (use-package format-all
@@ -43,6 +34,15 @@
   :diminish
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c z f" . #'format-all-buffer))
+
+;; 变量高亮
+(use-package rainbow-identifiers
+  :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
+
+
+;; blink-search
+(add-to-list 'load-path "~/.emacs.d/extensions/blink-search")
+(require 'blink-search)
 
 
 ;; weather
