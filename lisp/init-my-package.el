@@ -36,8 +36,8 @@
   :bind ("C-c z f" . #'format-all-buffer))
 
 ;; 变量高亮
-(use-package rainbow-identifiers
-  :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
+; (use-package rainbow-identifiers
+;   :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
 
 
 ;; blink-search
@@ -83,6 +83,7 @@
 (global-set-key (kbd "C-c z w") 'my/weather) ;;查看天气
 (global-set-key (kbd "C-c [") 'project-find-file) ;;项目中查找文件
 (global-set-key (kbd "C-c z b") 'blink-search);; blink-search
+(global-set-key (kbd "M-q") 'query-replace);;字符查找替换
 (provide 'init-my-package)
 
 ;; Local Variables:
